@@ -1,0 +1,15 @@
+SELECT co.Name, ss.CCode FROM (
+    SELECT SUBSTR(a, 1, 2) AS State, SUBSTR(a, 3) AS SCode,
+      SUBSTR(b, 1, 2) AS Country, SUBSTR(b, 3) AS CCode FROM t
+  ) AS ss
+  JOIN Country AS co
+    ON co.Code2 = ss.Country
+  Where co.population > 38000000 AND co.death_rate < 2000
+  ORDER BY co.name 
+  LIMIT 100
+;
+
+
+# The above query displays country name and Country code from a 
+(select query which is used to make substrings for state name, state code,country name and country code) 
+where country population is greater than 38000000 and its death rate is less than 2000, ordered according to country name.
